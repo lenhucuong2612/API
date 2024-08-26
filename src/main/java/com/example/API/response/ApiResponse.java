@@ -7,5 +7,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class ApiResponse {
     private String message;
-    private Object object;
+    private Object data;
 }
