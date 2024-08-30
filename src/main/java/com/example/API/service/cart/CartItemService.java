@@ -4,9 +4,12 @@ import com.example.API.exception.ResourceNotFoundException;
 import com.example.API.model.Cart;
 import com.example.API.model.CartItem;
 import com.example.API.model.Product;
+import com.example.API.model.User;
 import com.example.API.repository.CartItemRepository;
 import com.example.API.repository.CartRepository;
+import com.example.API.repository.UserRepository;
 import com.example.API.service.product.IProductService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +22,8 @@ public class CartItemService implements ICartItemService{
     private final IProductService productService;
     private final CartRepository cartRepository;
     private final ICartService cartService;
+
+    @Transactional
     @Override
     public void addCartItem(Long cartId, Long productId, int quantity) {
         //1. Get the cart

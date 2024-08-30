@@ -1,5 +1,6 @@
 package com.example.API.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,7 +25,7 @@ public class Cart {
     private Set<CartItem> items=new HashSet<>();
 
     @OneToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="user_id",referencedColumnName = "id")
     private User user;
 
     public void addItem(CartItem item){
